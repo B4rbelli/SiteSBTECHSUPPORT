@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,8 +22,25 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSending(true);
+
+    emailjs.send(
+      'service_m95p9xk',
+      'template_76dthye',
+      formData,
+      'RGSqRJA9mE5wOM1u_'
+    )
+    .then(() => {
+      alert('✅ Mensagem enviada com sucesso!');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    })
+    .catch((error) => {
+      console.error('Erro ao enviar:', error);
+      alert('❌ Ocorreu um erro ao enviar. Tente novamente mais tarde.');
+    })
+    .finally(() => {
+      setIsSending(false);
+    });
   };
 
   const contactInfo = [
@@ -180,10 +200,11 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full btn-primary flex items-center justify-center gap-2"
+                disabled={isSending}
+                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Send className="w-5 h-5" />
-                Enviar Mensagem
+                {isSending ? 'Enviando...' : 'Enviar Mensagem'}
               </button>
             </form>
           </motion.div>
