@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ShieldCheck } from 'lucide-react';
+import { Github, Linkedin, Mail, ShieldCheck, Instagram } from 'lucide-react';  // adicionado Instagram
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,46 +16,60 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Espaço reservado (vazio no meio) */}
           <div></div>
 
-          {/* Social Links - agora alinhado à direita */}
+          {/* Social Links */}
           <div className="space-y-4 text-right">
             <h4 className="text-lg font-semibold text-white">Conecte-se</h4>
             <div className="flex justify-end space-x-4">
               <a
-                href="#"
+                href="https://github.com/SBTechSupportBusiness"
+                aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:bg-purple-600 transition-colors duration-300"
               >
                 <Github className="w-5 h-5 text-white" />
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/in/seuusuario"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:bg-purple-600 transition-colors duration-300"
               >
                 <Linkedin className="w-5 h-5 text-white" />
               </a>
               <a
-                href="#"
+                href="mailto:consultoria@sbtechsupport.onmicrosoft.com"
+                aria-label="E-mail"
                 className="p-3 bg-gray-800 rounded-full hover:bg-purple-600 transition-colors duration-300"
               >
                 <Mail className="w-5 h-5 text-white" />
               </a>
-               <a href="#contact" className="btn-primary">
-              Contatos
-            </a>
-            <a
-              href="/politica&privacidade_sbtech.pdf"
-              download
-              className="btn-secondary"
-            >
-              Download Portfólio
-            </a>
+              <a
+                href="https://www.instagram.com/sb.technology.support/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-800 rounded-full hover:bg-purple-600 transition-colors duration-300"
+              >
+                <Instagram className="w-5 h-5 text-white" />
+              </a>
+            </div>
+
+            <div className="mt-4">
+              <a
+                href="/politica&privacidade_sbtech.pdf"
+                download
+                className="inline-block px-4 py-2 border border-gray-400 rounded hover:bg-purple-600 hover:text-white transition-colors duration-300"
+              >
+                Política e Privacidade de Dados
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {currentYear} SBTech&Support. Todos os direitos reservados.
