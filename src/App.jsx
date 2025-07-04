@@ -9,6 +9,7 @@ import {
   Footer,
   ParticleBackground 
 } from "./components";
+import CookieConsent from "./components/CookieConsent";  // ✅ Aqui
 
 const App = () => {
   return (
@@ -23,6 +24,8 @@ const App = () => {
         <Contact />
         <Footer />
       </div>
+
+      <CookieConsent />  {/* ✅ Aqui embaixo */}
     </BrowserRouter>
   );
 }
