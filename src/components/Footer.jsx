@@ -41,6 +41,16 @@ const Footer = () => {
               >
                 <Mail className="w-5 h-5 text-white" />
               </a>
+               <a href="#contact" className="btn-primary">
+              Contatos
+            </a>
+            <a
+              href="/politica&privacidade_sbtech.pdf"
+              download
+              className="btn-secondary"
+            >
+              Download Portfólio
+            </a>
             </div>
           </div>
         </div>
